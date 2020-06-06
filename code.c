@@ -93,6 +93,7 @@ int main()
 {
 	// Construct all possible BSTs
 	int n;
+	printf("Enter the value of n:");
 	scanf("%d", &n);
 	struct node** numb=constructTrees(1, n);
 	int t=0;
