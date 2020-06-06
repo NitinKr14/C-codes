@@ -10,7 +10,6 @@ struct node
 struct node *newNode(int item)
 {
     struct node *temp = (struct node*)malloc(sizeof(struct node));
-    //temp = (struct node*)malloc(sizeof(struct node));
     temp->data = item;
     temp->left = temp->right = NULL;
 	return temp;
