@@ -95,8 +95,7 @@ int main()
 	// Construct all possible BSTs
 	int n;
 	scanf("%d", &n);
-	struct node** numb=(struct node**)malloc(catalan_no(n)*sizeof(struct node*));
-	numb=constructTrees(1, n);
+	struct node** numb=constructTrees(1, n);
 	int t=0;
 	while(numb[t]!=NULL)
 	t++;
