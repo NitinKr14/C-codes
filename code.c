@@ -4,23 +4,9 @@ int op;
 struct node
 {
 	int data;
-	//struct TREE *left;
-	//struct TREE *right;
 	struct node *left;
 	struct node *right;
 };
-int factorial(int n)
-{
-    if(n==1)
-        return 1;
-    else return n*factorial(n-1);
-}
-unsigned long int catalan_no(unsigned int n)
-{
-        unsigned long int s=factorial(2*n)/(factorial(n)*factorial(n+1));
-        return s;
-}
-
 struct node *newNode(int item)
 {
     struct node *temp = (struct node*)malloc(sizeof(struct node));
@@ -59,17 +45,11 @@ struct node **constructTrees(int start, int end)
 	struct node **list;
 	list=(struct node**)malloc(sizeof(struct node*));
 	list[0]=NULL;
-
-	/* if start > end then subtree will be empty so returning NULL
-		in the list */
 	if (start > end)
 	{
 
 		return list;
 	}
-
-	/* iterating through all values from start to end for constructing\
-		left and right subtree recursively */
 	for (int i = start; i <= end; i++)
 	{
 		/* constructing left subtree */
@@ -82,10 +62,6 @@ struct node **constructTrees(int start, int end)
 		q++;
 		while(rightSubtree[t]!=NULL)
 		t++;
-
-
-		/* now looping through all left and right subtrees and connecting
-			them to ith root below */
 		for (int j = 0; j < q+1; j++)
 		{
 			struct node* left = leftSubtree[j];
@@ -97,7 +73,7 @@ struct node **constructTrees(int start, int end)
 				mode->right = right;		 // connect right subtree
 				int f=0;
 				while(list[f]!=NULL)
-                f++;
+                		f++;
 				list[f]=mode;
 				int l=(f+2)*sizeof(struct node*);
 				list=(struct node**)realloc(list,l);
@@ -114,9 +90,6 @@ struct node **constructTrees(int start, int end)
 	list=realloc(list,r);
 	return list;
 }
-
-
-
 int main()
 {
 	// Construct all possible BSTs
